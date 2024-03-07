@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<th:block th:insert="~{fragments/resources}"></th:block>
+</head>
+<body data-ma-theme="blue">
+	<th:block th:insert="~{fragments/header}"></th:block>
+	<th:block th:insert="~{fragments/menu}"></th:block>
+	<section class="content">
+
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title">Nuevo empleado</h4>
+
+				<form th:action="@{/empleados/crear}" th:method="post"
+					th:object="${empleado}">
+
+					<div class="form-row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="text" th:field="*{nombre}" class="form-control"
+									placeholder="Nombres" maxlength="50"> <i
+									class="form-group__bar"></i>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="text" th:field="*{salario}" class="form-control"
+									placeholder="Sueldo" maxlength="50"> <i
+									class="form-group__bar"></i>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="text" th:field="*{fechaIngreso}"
+									class="validate[required] form-control date-picker hidden-sm-down"
+									placeholder="Fecha de Ingreso" maxlength="50"> <i
+									class="form-group__bar"></i>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<select th:field="*{departamento.id}" class="form-control">
+									<option value="-1">Seleccione</option>
+									<option th:each="departamento : ${listaDepartamentos}"
+										th:value="${departamento.id}"
+										th:text="${departamento.descripcion}" />
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary">Registrar</button>
+								<a href="/empleados" class="btn btn-danger">Cancelar</a>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+	</section>
+</body>
+</html>

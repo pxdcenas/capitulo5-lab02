@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<th:block th:insert="~{fragments/resources}"></th:block>
+</head>
+<body data-ma-theme="blue">
+	<th:block th:insert="~{fragments/header}"></th:block>
+	<th:block th:insert="~{fragments/menu}"></th:block>
+	<section class="content">
+		<th:block th:insert="~{fragments/content}"></th:block>
+	</section>
+</body>
+</html>

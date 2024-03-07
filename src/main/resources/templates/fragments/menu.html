@@ -1,0 +1,30 @@
+<aside class="sidebar">
+	<div class="scrollbar-inner">
+		<div class="user">
+			<div class="user__info" data-toggle="dropdown">
+				<img class="user__img" th:src="@{/demo/img/profile-pics/4.jpg}" alt="">
+				<div>
+					<div class="user__name">
+						User: <span sec:authentication="name"></span>
+						<br/>
+						Roles: <span sec:authentication="principal.authorities"></span>
+					</div>
+					<div class="user__email">danycenas@example.com</div>
+				</div>
+			</div>
+
+			<div class="dropdown-menu">
+				<a class="dropdown-item" href="">View Profile</a> <a
+					class="dropdown-item" href="">Settings</a> <a class="dropdown-item"
+					th:href="@{/logout}">Cerrar sesión</a>
+			</div>
+		</div>
+
+		<ul class="navigation">
+			<li><a href="#"><i class="zmdi zmdi-home"></i> Inicio</a></li>
+
+			<li><a href="/empleados"><i class="zmdi zmdi-account-o"></i>
+					Empleados</a></li>
+		</ul>
+	</div>
+</aside>
