@@ -67,7 +67,7 @@ public class SecurityConfig {
                         .requestMatchers("/css/**", "/js/**", "/vendors/**", "/fonts/**").permitAll()
                         .anyRequest().authenticated()
                 )
-//                .httpBasic(Customizer.withDefaults())
+                .httpBasic(Customizer.withDefaults())
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }

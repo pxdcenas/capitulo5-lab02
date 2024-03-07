@@ -1,5 +1,6 @@
 package edu.cibertec.capitulo5.lab02.rest;
 
+import edu.cibertec.capitulo5.lab02.dto.EmpleadoDTO;
 import edu.cibertec.capitulo5.lab02.model.Empleado;
 import edu.cibertec.capitulo5.lab02.service.EmpleadoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class EmpleadoRestController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Empleado> buscarEmpleado(@PathVariable Long id) {
+    public ResponseEntity<EmpleadoDTO> buscarEmpleado(@PathVariable Long id) {
         return ResponseEntity.ok(empleadoService.buscarEmpleado(id));
     }
 
